@@ -56,6 +56,8 @@ curl -Lo /usr/local/bin/marksman https://github.com/artempyanykh/marksman/releas
 
 curl -Lo zellij.tar.gz https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz && tar xzf zellij.tar.gz && rm zellij.tar.gz && mv zellij /usr/local/bin/
 
+curl -Lo difft.tar.gz https://github.com/Wilfred/difftastic/releases/download/0.67.0/difft-x86_64-unknown-linux-musl.tar.gz && tar xzf difft.tar.gz && rm difft.tar.gz && mv difft /usr/local/bin/
+
 mkdir --parents /root/.config/helix /root/.config/dprint
 cp config.toml /root/.config/helix/config.toml
 cp languages.toml /root/.config/helix/languages.toml

@@ -3,6 +3,19 @@
   "id": "hx-and-friends",
   "version": "0.0.1",
   "description": "Zsh, Python 3 + tooling, Rust, Helix, uv, Poetry, LSPs, zellij, and editor configs from reference Dockerfile",
+  "documentationURL": "https://github.com/nsbruce/dev-hx-and-friends",
+  "keywords": [
+    "helix",
+    "hx",
+    "language server",
+    "crush",
+    "zellij",
+    "uv",
+    "poetry",
+    "rust",
+    "gcc",
+    "cpp"
+  ],
   "options": {},
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"

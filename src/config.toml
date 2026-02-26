@@ -1,7 +1,22 @@
 theme = "nord"
 
+[editor]
+end-of-line-diagnostics = "hint"
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 3000
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "disable"
+
 [editor.soft-wrap]
 enable = true
 
+[editor.indent-guides]
+render = true
+
 [editor.file-picker]
-hidden = false
+hidden = true
