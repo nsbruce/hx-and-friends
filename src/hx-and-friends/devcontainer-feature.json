@@ -3,7 +3,7 @@
   "id": "hx-and-friends",
   "version": "0.0.1",
   "description": "Zsh, Python 3 + tooling, Rust, Helix, uv, Poetry, LSPs, zellij, and editor configs from reference Dockerfile",
-  "documentationURL": "https://github.com/nsbruce/dev-hx-and-friends",
+  "documentationURL": "https://github.com/nsbruce/hx-and-friends",
   "keywords": [
     "helix",
     "hx",
