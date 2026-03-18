@@ -1,8 +1,0 @@
-{
-  "hx-and-friends-default": {
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-      "hx-and-friends": {}
-    }
-  }
-}
