@@ -1,20 +1,24 @@
-# Helix and associated tooling (hx-and-friends)
 
-Zsh-based development environment feature that installs:
+# Helix editor environment (hx-and-friends)
 
-- Zsh, Git, build-essential, clangd
-- Python 3 + venv, uv, Poetry, and Python tooling (ruff, isort, pylsp, etc.)
-- Rust (via rustup) and cargo utilities (texlab, zellij)
-- Helix editor with custom config and markdown formatting via dprint
-- Shellcheck, npm-based language servers, and dprint config
+Zsh, Python 3 + tooling, Rust, Helix, uv, Poetry, LSPs, zellij, and editor configs from reference Dockerfile
 
-This feature can be added on top of any compatible devcontainer base image.
+## Example Usage
 
-Example usage:
-
-```jsonc
+```json
 "features": {
-  "./src": {
-  }
+    "ghcr.io/nsbruce/hx-and-friends/hx-and-friends:0": {}
 }
 ```
+
+## Options
+
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+
+
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/nsbruce/hx-and-friends/blob/main/src/hx-and-friends/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
