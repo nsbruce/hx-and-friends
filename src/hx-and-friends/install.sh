@@ -15,7 +15,13 @@ apt-get install --assume-yes --no-install-recommends \
   shellcheck \
   npm
 
-chsh -s /usr/bin/zsh
+USERNAME="${_REMOTE_USER:-${USERNAME:-${REMOTE_USER:-${USER:-root}}}}"
+
+if command -v zsh >/dev/null 2>&1; then
+  if id "$USERNAME" >/dev/null 2>&1; then
+    chsh -s /usr/bin/zsh "$USERNAME" || true
+  fi
+fi
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 export PATH=/root/.cargo/bin:$PATH
