@@ -1,7 +1,7 @@
 {
   "name": "Helix editor environment",
   "id": "hx-and-friends",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Zsh, Python 3 + tooling, Rust, Helix, uv, Poetry, LSPs, zellij, and editor configs from reference Dockerfile",
   "documentationURL": "https://github.com/nsbruce/hx-and-friends",
   "keywords": [
@@ -17,6 +17,12 @@
     "cpp"
   ],
   "options": {},
+  "containerEnv": {
+    "SHELL": "/usr/bin/zsh"
+  },
+  "remoteEnv": {
+    "SHELL": "/usr/bin/zsh"
+  },
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"
   ]
