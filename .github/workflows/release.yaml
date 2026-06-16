@@ -1,8 +1,19 @@
 name: "Release dev container features"
 on:
   workflow_dispatch:
+  tag:
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: "Validate devcontainer-feature.json files"
+        uses: devcontainers/action@v1.4.3
+        with:
+          validate-only: "true"
+          base-path-to-features: "./src"
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
@@ -18,7 +29,6 @@ jobs:
         with:
           publish-features: "true"
           base-path-to-features: "./src"
-          generate-docs: "true"
-          
+          generate-docs: "false"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
