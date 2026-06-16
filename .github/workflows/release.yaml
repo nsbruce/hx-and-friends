@@ -1,7 +1,9 @@
 name: "Release dev container features"
 on:
   workflow_dispatch:
-  tag:
+  push:
+    tags:
+      - '*'
 
 jobs:
   validate:
