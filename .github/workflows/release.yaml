@@ -1,4 +1,4 @@
-name: "Release dev container features"
+name: "Validate and deploy dev container features"
 on:
   workflow_dispatch:
   push:
@@ -17,7 +17,6 @@ jobs:
           validate-only: "true"
           base-path-to-features: "./src"
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
