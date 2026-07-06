@@ -64,6 +64,8 @@ curl -Lo zellij.tar.gz https://github.com/zellij-org/zellij/releases/download/v0
 
 curl -Lo difft.tar.gz https://github.com/Wilfred/difftastic/releases/download/0.67.0/difft-x86_64-unknown-linux-musl.tar.gz && tar xzf difft.tar.gz && rm difft.tar.gz && mv difft /usr/local/bin/
 
+curl -sS https://starship.rs/install.sh | sh
+
 # identify user home
 USER_HOME=$(getent passwd "$USERNAME" | cut -d: -f6)
 
@@ -73,6 +75,7 @@ cp config.toml /root/.config/helix/config.toml
 cp languages.toml /root/.config/helix/languages.toml
 cp dprint.json /root/.config/dprint/dprint.json
 cp gitconfig /root/.gitconfig
+cp starship.toml /root/.config/starship.toml
 
 # copy configs to user home if different
 if [ "$USERNAME" != "root" ]; then
@@ -81,6 +84,7 @@ if [ "$USERNAME" != "root" ]; then
     cp languages.toml "$USER_HOME/.config/helix/languages.toml"
     cp dprint.json "$USER_HOME/.config/dprint/dprint.json"
     cp gitconfig "$USER_HOME/.gitconfig"
+    cp starship.toml "$USER_HOME/starship.toml"
     chown -R "$USERNAME:$USERNAME" "$USER_HOME/.config" "$USER_HOME/.gitconfig"
 fi
 
@@ -90,5 +94,6 @@ git config --global credential.helper store
 if command -v zsh >/dev/null 2>&1; then
     cat << 'EOF' > /etc/profile.d/hx-and-friends-shell.sh
 export SHELL=/usr/bin/zsh
+eval "$(starship init zsh)"
 EOF
 fi

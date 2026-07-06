@@ -1,0 +1,29 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[sudo]
+disabled = false
+
+[memory_usage]
+disabled = false
+threshold = 90
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[package]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[container]
+disabled = true
+
