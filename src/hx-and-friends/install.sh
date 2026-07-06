@@ -69,31 +69,36 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 # identify user home
 USER_HOME=$(getent passwd "$USERNAME" | cut -d: -f6)
 
-# copy configs to root
-mkdir --parents /root/.config/helix /root/.config/dprint
-cp config.toml /root/.config/helix/config.toml
-cp languages.toml /root/.config/helix/languages.toml
-cp dprint.json /root/.config/dprint/dprint.json
-cp gitconfig /root/.gitconfig
-cp starship.toml /root/.config/starship.toml
+# # copy configs to root
+# mkdir --parents /root/.config/helix /root/.config/dprint
+# cp config.toml /root/.config/helix/config.toml
+# cp languages.toml /root/.config/helix/languages.toml
+# cp dprint.json /root/.config/dprint/dprint.json
+# cp gitconfig /root/.gitconfig
+# cp starship.toml /root/.config/starship.toml
 
-# copy configs to user home if different
-if [ "$USERNAME" != "root" ]; then
-    mkdir --parents "$USER_HOME/.config/helix" "$USER_HOME/.config/dprint"
-    cp config.toml "$USER_HOME/.config/helix/config.toml"
-    cp languages.toml "$USER_HOME/.config/helix/languages.toml"
-    cp dprint.json "$USER_HOME/.config/dprint/dprint.json"
-    cp gitconfig "$USER_HOME/.gitconfig"
-    cp starship.toml "$USER_HOME/starship.toml"
-    chown -R "$USERNAME:$USERNAME" "$USER_HOME/.config" "$USER_HOME/.gitconfig"
-fi
+# # copy configs to user home if different
+# if [ "$USERNAME" != "root" ]; then
+mkdir --parents "$USER_HOME/.config/helix" "$USER_HOME/.config/dprint"
+cp config.toml "$USER_HOME/.config/helix/config.toml"
+cp languages.toml "$USER_HOME/.config/helix/languages.toml"
+cp dprint.json "$USER_HOME/.config/dprint/dprint.json"
+cp gitconfig "$USER_HOME/.gitconfig"
+cp starship.toml "$USER_HOME/starship.toml"
+chown -R "$USERNAME:$USERNAME" "$USER_HOME/.config" "$USER_HOME/.gitconfig"
+# fi
 
 git config --global credential.helper store
+
+if command -v zsh >/dev/null 2>&1; then
+    cat << 'EOF' > "$USER_HOME/.zshrc"
+eval "$(starship init zsh)"
+EOF
+fi
 
 # default shell
 if command -v zsh >/dev/null 2>&1; then
     cat << 'EOF' > /etc/profile.d/hx-and-friends-shell.sh
 export SHELL=/usr/bin/zsh
-eval "$(starship init zsh)"
 EOF
 fi
