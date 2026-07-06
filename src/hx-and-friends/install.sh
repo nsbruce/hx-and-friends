@@ -64,7 +64,7 @@ curl -Lo zellij.tar.gz https://github.com/zellij-org/zellij/releases/download/v0
 
 curl -Lo difft.tar.gz https://github.com/Wilfred/difftastic/releases/download/0.67.0/difft-x86_64-unknown-linux-musl.tar.gz && tar xzf difft.tar.gz && rm difft.tar.gz && mv difft /usr/local/bin/
 
-curl -sS https://starship.rs/install.sh | sh --yes
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 # identify user home
 USER_HOME=$(getent passwd "$USERNAME" | cut -d: -f6)
