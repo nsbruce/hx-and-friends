@@ -3,10 +3,15 @@ set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
-sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources || true
-sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list || true
-
-apt-get update
+if ! apt-get update; then
+    echo "Initial apt-get update failed. Attempting to switch Debian sources to HTTPS..."
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || true
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list 2>/dev/null || true
+    if ! apt-get update; then
+        echo "ERROR: apt-get update failed with both HTTP and HTTPS sources." >&2
+        exit 1
+    fi
+fi
 apt-get install --assume-yes --no-install-recommends \
   zsh \
   curl \
