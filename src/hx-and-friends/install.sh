@@ -88,7 +88,7 @@ USER_HOME=$(getent passwd "$USERNAME" | cut -d: -f6)
 # # copy configs to user home if different
 # if [ "$USERNAME" != "root" ]; then
 mkdir --parents "$USER_HOME/.config/helix" "$USER_HOME/.config/dprint" "$USER_HOME/.config/zellij"
-cp config.kdl "$USER_HOME.config/zellij/config.kdl"
+cp zellij.kdl "$USER_HOME.config/zellij/config.kdl"
 cp helix_config.toml "$USER_HOME/.config/helix/config.toml"
 cp helix_languages.toml "$USER_HOME/.config/helix/languages.toml"
 cp dprint.json "$USER_HOME/.config/dprint/dprint.json"
